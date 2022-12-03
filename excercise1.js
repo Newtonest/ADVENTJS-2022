@@ -25,3 +25,15 @@ wrapping(gifts)
 //arraisito[0] = numerales;
 //arraisito[1] = "\n*" + gifts[i] + "*";
 //arraisito[2] = "\n" + numerales ;
+
+
+//Solucion Mucho mas optima
+
+//function wrapping (gifts) {
+    //return gifts.map(
+      //gift =>
+        //`${'*'.repeat(gift.length + 2)}\n*${gift}*\n${'*'.repeat(
+          //gift.length + 2
+        //)}`
+    //)
+  //}
