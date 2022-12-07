@@ -1,21 +1,7 @@
-function fitsInOneBox (boxes){
-    let arr = [];
-    let res;
-    boxes.forEach((e)=>{
-        let value = Object.values(e).reduce((acc,e)=>{return acc = acc + e;},0);
-        arr.push(value)
+function fitsInOneBox(boxes){
+    return boxes.every((e,i)=>{
+       
+        if(i == boxes.length-1) return true;
+        e.l < boxes[i+1].l && e.w < boxes[i+1].w && e.h < boxes[i+1].h
     })
-    let max = Math.max(arr);
-    let index = arr.indexOf(max)
-    let arraisito = arr.slice(index,1);
-
-    let suma = arraisito.reduce((acc,e)=>{return acc = acc + e},0);
-
-    if(suma < max) {
-         res = true
-    } else{
-        res = false
-    }
-    
-return res
 }
