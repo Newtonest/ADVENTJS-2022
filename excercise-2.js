@@ -4,9 +4,7 @@ function countHour(year, holidays){
    return holidays.reduce((acc,v)=>{
    return new Date(v + `/${year}`).getDay() != 0 && new Date(v + `/${year}`).getDay() !=6? acc + 2 : acc; 
 
- 
 
- 
 },0)   
 
 }
