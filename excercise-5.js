@@ -4,24 +4,25 @@
         if(newArr.length === 0) return 0;
 		let contador = 0;
       
-		for(let i = 0; i<maxCities;i++){
-	         
+		for(let i = 0; i<maxCities+1;i++){
+			if(contador == maxCities) return;	
 			 let maximo = Math.max(...newArr);
 			 let index = newArr.indexOf(maximo);
 			 newArr.splice(index,1);
 		
 			 vari += maximo;
 		     contador ++;
-			 if(vari == maxGifts && contador < maxCities){
-				vari -= maximo
+			 if(vari == maxGifts && contador != maxCities){
+				vari -= maximo;
+				contador --
 			 }
 			 if(vari > maxGifts){
 				vari -= maximo;
 				contador --
 			 };
-			if(vari == maxGifts) return;
+	      
+	
 			
-
           }
 return vari    
   }
@@ -56,3 +57,49 @@ return vari
 	},0)
 
   }
+
+
+
+  function getMaxGifts(giftsCities,maxGifts,maxCities){
+	let toReturnValue = 0;
+	let newArr = giftsCities.filter(item=> item< maxGifts);
+	if(newArr.length === 0) return 0;
+
+    return newArr.reduce((acc,item)=>{
+	  let max = Math.max(...newArr);
+	  let i = newArr.indexOf(max)
+	  newArr.splice(max,1);
+
+	  return acc = acc + max;
+	  contador ++;	
+      if(acc > maxGifts ){
+		return acc = acc-max;
+	    contador --;
+	};
+	  if(contador <= maxCities && acc == maxGifts || contador == maxCities && acc <=maxGifts) return acc ;
+	},0)
+
+
+  }
+
+
+
+
+
+
+
+  function getMaxGifts(giftsCities, maxGifts, maxCities) {
+	let toReturnValue = 0;
+	let newArr = giftsCities.filter(item=> item< maxGifts);
+	if(newArr.length === 0) return 0;
+
+    return newArr.reduce((acc,item,index)=>{
+	  return acc = acc + item;
+	  contador ++;	
+      if(acc > maxGifts ){
+		return acc = acc-item;
+	    contador --;
+	};
+	  if(contador <= maxCities && acc == maxGifts || contador == maxCities && acc <=maxGifts) return acc ;
+	},0)
+}
