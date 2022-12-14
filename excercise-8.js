@@ -22,7 +22,7 @@ function checkPart(part){
     if(part === reverse) return true;
 
     let atras = [...part];
-    atras.forEach((e,i)=>{
+    atras.some((e,i)=>{
         let arr = [...atras];
         arr.splice(i,1);
         if(arr.reverse().join('') !== arr.join('')){

@@ -89,15 +89,14 @@ return vari
 
 
   function getMaxGifts(giftsCities, maxGifts, maxCities) {
-	let toReturnValue = 0;
 	let newArr = giftsCities.filter(item=> item< maxGifts);
 	if(newArr.length === 0) return 0;
 
     return newArr.reduce((acc,item,index)=>{
 	  return acc = acc + item;
 	  contador ++;	
-      if(acc > maxGifts ){
-		return acc = acc-item;
+      if(acc > maxGifts){
+      return acc = acc-item;
 	    contador --;
 	};
 	  if(contador <= maxCities && acc == maxGifts || contador == maxCities && acc <=maxGifts) return acc ;
