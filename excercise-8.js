@@ -8,7 +8,8 @@ function checkPart(part){
         copia.splice(i,1);
         
         copia.reverse().join('') !== copia.join('')
-    })}
+    })
+}
 
 
 checkPart("miidim")

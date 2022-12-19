@@ -1,40 +1,27 @@
 function checkJump(heights){
-    let max = Math.max(...heights)
-    let index = heights.lastIndexOf(max);
-   
-    let first = heights.slice(0,index);
-    let second = heights.slice(index+1 , heights.length-1+1);
-    
-    let primero;
-    let segundo;
+ let max = Math.max(...heights);
+ let index = heights.indexOf(max);
 
-   first.forEach((e,i) => {
-        if(i == 0 && e <= max){
-            primero = true;
-            return;
-        } 
-        if(e >= first[i-1] && e <= max) primero = true;
-        else{
-            primero = false;
-        }
-   })
+ let first = heights.slice(0,index);
+ let second = heights.slice(index + 1, heights.length - 1 + 1);
+ if(first.length == 0 || second.length == 0) return false;
 
-    second.forEach((e,i) => {
-       if(i == 0 && e <= max) {
-        return
-        segundo = true
-    };
-       if(e <= second[i-1] && e <= max) segundo = true;
-       else{
-        segundo = false;
-       }
-    })
+ let primero = first.every((e,i)=>{
+    if(first.length == 1 && e <= max) return true;
+    if(i == first.length-1 && e<= max && e >= first[i-1]) return true;
+    return e <= first[i+1] && e<= max
+}) 
+
+ let segundo = second.every((e,i)=>{
+    if(second.length == 1 && e <= max) return true;
+    if(i == second.length -1 && e <= max && e <= second[i-1]) return true ;
+    return e >= second[i+1] && e <= max;
+ })
 
 
-    return primero && segundo 
-    }
-    
-   
-  
-  checkJump([1, 2, 1])
-  checkJump([1, 2, 3, 1, 3, 1])
+
+
+return primero && segundo
+}
+
+ 

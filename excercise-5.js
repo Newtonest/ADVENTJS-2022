@@ -93,12 +93,18 @@ return vari
 	if(newArr.length === 0) return 0;
 
     return newArr.reduce((acc,item,index)=>{
-	  return acc = acc + item;
+	 let i = Math.max(...newArr) 
+	 return acc = acc + i;
 	  contador ++;	
+	  newArr.splice()
       if(acc > maxGifts){
-      return acc = acc-item;
+      return acc = acc-i;
 	    contador --;
 	};
-	  if(contador <= maxCities && acc == maxGifts || contador == maxCities && acc <=maxGifts) return acc ;
+	  if(contador <= maxCities && acc == maxGifts || contador == maxCities && acc <=maxGifts){
+		 return acc
+		}else if(!newArr[maxGifts - acc]){
+			acc = acc - i
+		}
 	},0)
 }
